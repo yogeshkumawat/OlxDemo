@@ -13,6 +13,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -27,8 +29,8 @@ public class MainActivity extends Activity {
 	private List<Category> mDummyData2;
 	private CategoryAdapter mCategoryAdapter;
 	private SearchView mSearchView;
+	private Button post;
 	
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -50,6 +52,17 @@ public class MainActivity extends Activity {
 		
 		mCategoryAdapter = new CategoryAdapter(mContext, mDummyData2);
 		mCategoryList.setAdapter(mCategoryAdapter);
+		
+		post = (Button) findViewById(R.id.fab);
+		post.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				Intent i = new Intent(mContext, PostActivity.class);
+				startActivity(i);
+			}
+		});
 		
 		
 	}
